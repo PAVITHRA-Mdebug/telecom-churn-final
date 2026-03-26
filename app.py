@@ -20,13 +20,12 @@ st.markdown("Predict customer churn using Machine Learning")
 # ------------------------------
 st.sidebar.header("Upload Dataset")
 
-uploaded_file = st.sidebar.file_uploader("Upload CSV", type=["csv"])
-
-if uploaded_file:
+uploaded_file = st.sidebar.file_uploader("Upload CSV", type=["csv"]
+   if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
 else:
-    df = pd.read_csv("telecom_churn.csv")
-    st.info("Using default dataset")
+    st.warning("Please upload a dataset to continue")
+    st.stop()
 
 # ------------------------------
 # ✅ Column Validation
